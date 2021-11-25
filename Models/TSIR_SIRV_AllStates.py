@@ -30,7 +30,7 @@ def ridge(x, y):
     return clf
 
 
-frame_main = pd.read_csv(r'C:\Users\tharun\Documents\GitHub\Covid19-Research\Datasets\Input\State_dataset.csv')
+frame_main = pd.read_csv(r'C:\Users\siddh\Desktop\MSA\Covid-19-Research-Development\Datasets\Input\State_dataset.csv')
 reg = list(np.unique(frame_main['Region']))
 union_terr = ['Dadra & Nagar Haveli and Daman & Diu', 'Lakshadweep', 'Ladakh', 'Puducherry']
 
@@ -79,8 +79,8 @@ for m in range(len(reg)):
     gamma = np.nan_to_num(gamma)
 
     R0 = np.divide(beta, gamma, out=np.zeros_like(beta), where=gamma != 0)
-
     R0 = np.nan_to_num(R0)
+    
     orders_beta = 30
     orders_gamma = 30
     start_beta = 10
@@ -429,7 +429,7 @@ for m in range(len(reg)):
             ['Confirmed', 'Deceased', 'Recovered', 'totalConfirmed', 'totalFatalities',
              'totalRecovered']].reset_index()], axis=1)
     if m == 0:
-        main_data.to_csv(r'C:\Users\tharun\Documents\GitHub\Covid19-Research\Datasets\Output\Tableau SIR Data India.csv')
+        main_data.to_csv(r'C:\Users\siddh\Desktop\MSA\Covid-19-Research-Development\Datasets\Output\Tableau SIR Data India.csv')
     else:
-        main_data.to_csv(r'C:\Users\tharun\Documents\GitHub\Covid19-Research\Datasets\Output\Tableau SIR Data India.csv', mode='a', header=False)
+        main_data.to_csv(r'C:\Users\siddh\Desktop\MSA\Covid-19-Research-Development\Datasets\Output\Tableau SIR Data India.csv', mode='a', header=False)
     print(reg[m])
